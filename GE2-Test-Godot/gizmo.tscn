@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3xa8ci5numkn"]
+[gd_scene load_steps=5 format=3 uid="uid://d3xa8ci5numkn"]
 
 [ext_resource type="Script" path="res://Gizmo.gd" id="1_5beut"]
 [ext_resource type="PackedScene" uid="uid://c47e4aixkfu3t" path="res://fish_body.tscn" id="2_7l0no"]
 [ext_resource type="Script" path="res://FishBodyManager.gd" id="3_n4unr"]
-[ext_resource type="Script" path="res://tailManager.gd" id="4_plghb"]
 [ext_resource type="PackedScene" uid="uid://owpwupmuec41" path="res://gizmotail.tscn" id="5_emyh6"]
 
 [node name="Gizmo" type="CharacterBody3D"]
@@ -12,11 +11,8 @@ fish_body = ExtResource("2_7l0no")
 
 [node name="fishManager" type="Node3D" parent="."]
 script = ExtResource("3_n4unr")
-fishBody = ExtResource("2_7l0no")
-
-[node name="tailManager" type="Node3D" parent="fishManager"]
-script = ExtResource("4_plghb")
-fishBody = ExtResource("5_emyh6")
+gizmoBody = ExtResource("2_7l0no")
+gizmotail = ExtResource("5_emyh6")
 
 [node name="Timer" type="Timer" parent="."]
 
