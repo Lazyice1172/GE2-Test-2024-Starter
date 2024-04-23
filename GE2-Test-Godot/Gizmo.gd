@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var speed:= 3.0
 @export var fish_body: PackedScene
 var random_position_x := randf_range(-2.0, 2.0)
-var random_position_z := randf_range(-2.0, 2.0)
+var random_position_z := randf_range(1.0, 2.0)
 
 
 
@@ -11,6 +11,8 @@ var target_position := Vector3.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	
 	
 	pass # Replace with function body.
 
