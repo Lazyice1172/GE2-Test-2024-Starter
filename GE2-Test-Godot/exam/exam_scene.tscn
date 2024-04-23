@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b26ra08yh7e5m"]
+[gd_scene load_steps=8 format=3 uid="uid://b26ra08yh7e5m"]
 
 [ext_resource type="Script" path="res://behaviors/root.gd" id="1_prfgg"]
+[ext_resource type="Script" path="res://exam/gizmoManager.gd" id="5_6ckd8"]
 [ext_resource type="Script" path="res://behaviors/FPController.gd" id="5_8r2ni"]
 [ext_resource type="PackedScene" uid="uid://d3xa8ci5numkn" path="res://gizmo.tscn" id="5_loe58"]
 [ext_resource type="Environment" uid="uid://b5dnnkkpxo3qc" path="res://behaviors/seek_environment..tres" id="6_qamsj"]
@@ -37,4 +38,17 @@ light_volumetric_fog_energy = 0.0
 
 [node name="SceneSwitcher" parent="." instance=ExtResource("7_ybx0x")]
 
-[node name="Gizmo" parent="." instance=ExtResource("5_loe58")]
+[node name="gizmoManager" type="Node3D" parent="."]
+script = ExtResource("5_6ckd8")
+gizmo = ExtResource("5_loe58")
+
+[node name="Gizmo" parent="gizmoManager" instance=ExtResource("5_loe58")]
+
+[node name="fishCamera3D" type="Camera3D" parent="gizmoManager/Gizmo"]
+visible = false
+
+[node name="Timer" type="Timer" parent="gizmoManager"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="gizmoManager/Timer" to="gizmoManager" method="_on_timer_timeout"]

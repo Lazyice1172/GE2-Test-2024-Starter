@@ -1,5 +1,8 @@
 extends Node
 
+@onready var camera_3d: Camera3D = $"../Player/Camera3D"
+@onready var fish_camera_3d: Camera3D = $"../Gizmo/fishCamera3D"
+
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -19,3 +22,10 @@ func _input(event):
 		var i = event.keycode - KEY_0
 		if event.keycode >= KEY_0 and i >= 0 and i < scenes.size():			
 			get_tree().change_scene_to_file(scenes[i])
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("switchcamer"):
+		camera_3d.visible = false
+		fish_camera_3d.visible = true
+		
+		

@@ -7,7 +7,7 @@ var tail:= 2.0
 @export var fishBody:PackedScene
 
 @onready var fish_body_manager: Node3D = $FishBodyManager
-@onready var gizmo: RigidBody3D = $"../.."
+@onready var gizmo: CharacterBody3D = $"../.."
 
 
 func _process(delta: float) -> void:
