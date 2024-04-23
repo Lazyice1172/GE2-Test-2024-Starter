@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://b56bouovj5xlh"]
+
+[ext_resource type="Script" path="res://fish.gd" id="1_77y5k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a7yw3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sled5"]
+size = Vector3(1.2, 1.2, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fv7e2"]
+size = Vector3(1.4, 1.4, 1.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nb01a"]
+size = Vector3(1.6, 1.6, 1.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a6rs1"]
+size = Vector3(1.4, 1.4, 1.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhbe0"]
+size = Vector3(1.2, 1.2, 1.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bdw8k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_n4p8j"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m7chj"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1rhtw"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oh2bd"]
+size = Vector3(1, 2.4751, 10)
+
+[node name="Fish" type="CharacterBody3D"]
+axis_lock_angular_y = true
+script = ExtResource("1_77y5k")
+
+[node name="Body" type="Node3D" parent="."]
+
+[node name="head" type="MeshInstance3D" parent="Body"]
+mesh = SubResource("BoxMesh_a7yw3")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_sled5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+mesh = SubResource("BoxMesh_fv7e2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+mesh = SubResource("BoxMesh_nb01a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+mesh = SubResource("BoxMesh_a6rs1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+mesh = SubResource("BoxMesh_bhbe0")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+mesh = SubResource("BoxMesh_bdw8k")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+mesh = SubResource("BoxMesh_n4p8j")
+
+[node name="Tail" type="Node3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Tail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+mesh = SubResource("BoxMesh_m7chj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body/Tail"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+mesh = SubResource("BoxMesh_1rhtw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117432, 3.87265)
+shape = SubResource("BoxShape3D_oh2bd")
